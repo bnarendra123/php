@@ -1,0 +1,25 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+ 
+<input type="text" name="search" id="search"/>
+<br />
+<div class="result"></div>
+ 
+<script>
+    $(document).ready(function() {
+        $(document).on('keyup', 'input#search', function() {
+            if($(this).val().length > 0) {
+                $.post('test.php', {"search":$(this).val()}, function(data) {
+                    $('div.result').html(data);
+                });
+            }
+        });
+    });
+</script>
+in test.php get search value
+ 
+<?php
+if(isset($_POST['search'])){
+$search=$_POST['search'];
+}
+?>
+write input textbox code here.

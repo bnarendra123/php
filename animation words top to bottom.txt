@@ -1,0 +1,31 @@
+<style>
+#video-overlay {
+    position: absolute;
+    margin: 10px;
+    padding: 5px 5px;
+    font-size: 20px;
+    font-family: Helvetica;
+    color: white;
+    //background-color: red;
+    font-family:cambria;
+    font-size:40px;
+    font-weight:600;
+    -webkit-animation: mymove 3s;  /* Safari 4.0 - 8.0 */
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    animation: mymove 3s;
+    animation-fill-mode: forwards;
+}
+@-webkit-keyframes mymove {
+    from {top: 0px;}
+    to {top: 150px;}
+}
+ 
+@keyframes mymove {
+    from {top: 0px;}
+    to {top: 150px;}
+}
+</style>
+ 
+<div class="video-overlay"><p>Resesarch</p>
+<p>Test</p>
+</div>
