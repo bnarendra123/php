@@ -1,0 +1,48 @@
+ <form method="post" action="" role="search">
+     <select name='okselect' id='okselect'>
+    <option value='no'> </option>
+  <option value='present' name='p' style='color:green; font-weight:bold;'>Present</option>
+  <option value='excusedabsent' name='ea' style='color:#e1c872; font-weight:bold;'>Excused Absent</option>
+  <option value='unexcusedabsent' name='ua' style='color:#e34c4c; font-weight:bold;'>Unexcused Absent</option>
+ 
+  </select>
+    </form>
+   
+   
+    <?php
+    echo $c="<div id='result'></div>";
+   
+    ?>
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+ 
+<script type = "text/javascript" language = "javascript">
+ jQuery(document).ready(function() {
+    jQuery("#okselect").change(function() {
+        var okselect = $('#okselect').val();
+        var pass_data = {
+            'okselect' : okselect,
+        };
+        //alert(dropdown_value);
+                     $.ajax({
+                    type: "POST",
+                    url: "get_value.php",
+                    data: pass_data,
+                    success: function(data) {
+                        $('#result').html(data);
+                               //
+                            },
+                            error: function(e) {
+                               console.log(e.message);
+                        }
+                    });
+    });
+ });
+</script>
+ 
+in get_value.php
+ 
+<?php
+echo $okselect=$_POST['okselect'];
+ 
+?>
