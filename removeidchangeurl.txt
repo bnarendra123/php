@@ -1,0 +1,11 @@
+
+<a href="view.php/id=<?php echo $row['id']; ?>"><?php echo $row['firstname']; ?></a>
+
+<!-----  .htaccess   -------------------->
+
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+testurl/view.php/id=([^&\s]+) [NC]
+RewriteRule ^ /view/%1 [R=302,L]
+
+RewriteRule ^view/([0-9]+)/?$ /testurl/view.php?id=$1 [QSA,NC,L]
+
+<!------   .htaccess  ------------------------>
